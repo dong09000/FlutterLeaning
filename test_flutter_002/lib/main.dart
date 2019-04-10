@@ -61,12 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  _getNewSubViews(int viewsCount){
-    for (int i = 0; i < viewsCount; i++) {
-      
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
