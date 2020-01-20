@@ -1,34 +1,60 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-void main() => runApp(MyApp());
+// 变量声明 1-3
+import 'package:test_dart_learning/learn001.dart';
+// 函数 4-10
+import 'package:test_dart_learning/learn002.dart';
+// 异步支持 11-18
+import 'package:test_dart_learning/learn003.dart';
+// 流 19
+import 'package:test_dart_learning/learn004.dart';
 
-StreamController<int> controller = StreamController<int>();
-
-final transformer = StreamTransformer<int,String>.fromHandlers(
-    handleData:(value, sink){
-      if(value%10==0){
-        sink.add("你猜对了");
-      }
-      else{
-        sink.addError('还没猜中，再试一次吧');
-      }
-    });
+// Flutter 页面相关
+import 'package:test_dart_learning/learn005.dart';
 
 
+/*
+Dart程序的入口都是main函数
+而Flutter是Dart编写的，
+所以入口也是main函数；
+ */
+void main() {
+  //test();
+  return runApp(MyApp());
+}
+
+Widget tempApp() {
+  return Text(
+    'Hello World',
+    textDirection: TextDirection.ltr,
+  );
+}
+
+// demo们的代码
+void test() {
+  //
+  //testLearning003();
+  //print(isNoble(1).runtimeType);
+  //testLearning004(isNoble(1));
+  //testLearning005(5);
+  //testLearning006('006');
+  //testLearning007(() => print('func'));
+
+  //testLearning008('lilei', 'boy next door', 'Apple');
+  //testLearning009('lilei', 'boy next door', 'Apple');
+  testLearning019();
+  //testLearning018();
+}
+
+
+
+
+/* 原文件中的默认代码 */
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
 
-
   @override
   Widget build(BuildContext context) {
-    if (!controller.hasListener) {
-      controller.stream
-          .transform(transformer)
-          .listen(
-              (data) => print(data),
-          onError:(err) => print(err));
-    }
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -77,12 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
-      controller.sink.add(_counter);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    test(); // 测试语法代码
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
